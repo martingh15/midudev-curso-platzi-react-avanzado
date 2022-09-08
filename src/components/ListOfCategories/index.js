@@ -1,4 +1,6 @@
 import React from "react";
+
+import db from "../../../api/db.json";
 import { Category } from "../Category";
 
 import { List, Item } from "./styles";
@@ -6,9 +8,13 @@ import { List, Item } from "./styles";
 export const ListOfCategories = () => {
   return (
     <List>
-      {[1, 2, 3, 4].map((category) => (
+      {db.categories.map((category) => (
         <Item key={category}>
-          <Category />
+          <Category
+            path={category.path}
+            cover={category.cover}
+            emoji={category.emoji}
+          />
         </Item>
       ))}
     </List>
